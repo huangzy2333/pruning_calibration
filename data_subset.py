@@ -40,7 +40,7 @@ def load_cifar10_sub(args, data_mask, sorted_score):
     data_set = torch.utils.data.Subset(train_data, subset_mask)
 
     train_loader = torch.utils.data.DataLoader(data_set, batch_size=args.batch_size, shuffle=True,
-                                               num_workers=args.workers, pin_memory=True)
+                                               num_workers=args.workers, pin_memory=args.pin_memo)
 
     test_transform = transforms.Compose([
         transforms.ToTensor(),
@@ -49,7 +49,7 @@ def load_cifar10_sub(args, data_mask, sorted_score):
 
     test_data = dset.CIFAR10(args.data_path, train=False, transform=test_transform, download=True)
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=args.batch_size, shuffle=False,
-                                              num_workers=args.workers, pin_memory=True)
+                                              num_workers=args.workers, pin_memory=args.pin_memo)
     return train_loader, test_loader
 
 def load_cifar100_sub(args, data_mask, sorted_score):
@@ -79,7 +79,7 @@ def load_cifar100_sub(args, data_mask, sorted_score):
     data_set = torch.utils.data.Subset(train_data, subset_mask)
 
     train_loader = torch.utils.data.DataLoader(data_set, batch_size=args.batch_size, shuffle=True,
-                                               num_workers=args.workers, pin_memory=True)
+                                               num_workers=args.workers, pin_memory=args.pin_memo)
 
     test_transform = transforms.Compose([
         transforms.ToTensor(),
@@ -88,5 +88,5 @@ def load_cifar100_sub(args, data_mask, sorted_score):
 
     test_data = dset.CIFAR100(args.data_path, train=False, transform=test_transform, download=True)
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=args.batch_size, shuffle=False,
-                                              num_workers=args.workers, pin_memory=True)
+                                              num_workers=args.workers, pin_memory=args.pin_memo)
     return train_loader, test_loader

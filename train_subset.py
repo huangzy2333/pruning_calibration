@@ -37,6 +37,7 @@ parser.add_argument('--score_path', default='', type=str)
 # Acceleration
 parser.add_argument('--ngpu', type=int, default=1, help='0 = CPU.')
 parser.add_argument('--workers', type=int, default=2, help='number of data loading workers (default: 2)')
+parser.add_argument('--pin_memo', action='store_true', default=False, help='open pin_memory option while loading dataset')
 # random seed
 parser.add_argument('--manualSeed', type=int, default='42', help='manual seed')
 
@@ -52,6 +53,9 @@ if args.use_cuda:
 cudnn.benchmark = True
 
 def main():
+    # add random seed in save path
+    args.save_path = os.path.join(args.save_path,'seed'+str(args.manualSeed))
+
     # Init logger
     print(args.save_path)
     if not os.path.isdir(args.save_path):

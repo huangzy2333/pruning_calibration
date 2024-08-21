@@ -1,19 +1,6 @@
-#for dataset in 'cifar10' 'cifar100'
-#do
-#  for seed in 37 42 77 88 374
-#  do
-#    for pruning_rate in 0.3 0.5 0.7
-#    do
-#      pass
-#    done
-#
-#
-#  done
-#done
-
-for dataset in cifar10 cifar100
+for dataset in cifar10
 do
-  for seed in 565 42 77 886 374
+  for seed in 565 4233 77 886 374
   do
     for pruning_rate in 0.3 0.5 0.7
     do

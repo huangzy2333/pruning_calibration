@@ -1,0 +1,13 @@
+save path : ./cifar100-checkpoint/all-dataset
+{'data_path': './data', 'dataset': 'cifar100', 'batch_size': 128, 'workers': 2, 'pin_memo': False, 'random_seed': 12345, 'arch': 'resnet18', 'checkpoint_path': './cifar100-checkpoint/all-dataset/checkpoint.pth.tar', 'subset_rate': 0, 'n_bins': 10, 'ngpu': 1, 'use_cuda': True, 'save_path': './cifar100-checkpoint/all-dataset'}
+python version : 3.9.19 (main, May  6 2024, 20:12:36) [MSC v.1916 64 bit (AMD64)]
+torch  version : 2.2.1
+cudnn  version : 8700
+Dataset: cifar100
+Data Path: ./data
+Random seed (for calibration & testing set split): 12345.
+Network: resnet18
+Batchsize: 128
+N_bins (the number of bins to calculate ECE): 10.
+  **Test** Prec@1 78.644 Prec@5 94.311 Error@1 21.356; ECE 0.049
+**Post-hoc Temperature Scaling (grid search range temp 0-15)** ECE after TS: 0.042; Best temp£º tensor([1.1500], device='cuda:0').
